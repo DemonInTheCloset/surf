@@ -1,0 +1,20 @@
+name: Create Release
+on:
+  push:
+    tags:
+      - "*-patch"
+
+jobs:
+  Create-Tar-Archives:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+      - name: Archive
+        run:
+          - git am patch/*
+          - git archive --prefix=surf-2.1 -o surf-2.1.tar.gz 2.1-patched
+      - name: Release
+        uses: softprops/action-gh-release@v1
+        with:
+          files: "*.tar.gz"
