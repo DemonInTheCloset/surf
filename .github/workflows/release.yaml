@@ -1,8 +1,5 @@
 name: Create Release
-on:
-  push:
-    tags:
-      - "*-patch"
+on: push
 
 jobs:
   Create-Tar-Archives:
