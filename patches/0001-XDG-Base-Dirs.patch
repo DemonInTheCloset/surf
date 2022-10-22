@@ -1,0 +1,35 @@
+From 1687d900b2c516aee43562a223c8cc91613a12cd Mon Sep 17 00:00:00 2001
+From: DemonInTheCloset <demoninthecloset@gmail.com>
+Date: Sat, 22 Oct 2022 20:34:19 +0200
+Subject: [PATCH] feat: Follow the XDG Base dirs spec
+
+Paths are hardcoded to the default of `.config`, `.local/share` and
+`.cache`
+---
+ config.def.h | 10 +++++-----
+ 1 file changed, 5 insertions(+), 5 deletions(-)
+
+diff --git a/config.def.h b/config.def.h
+index ef44721..5c6db9a 100644
+--- a/config.def.h
++++ b/config.def.h
+@@ -1,11 +1,11 @@
+ /* modifier 0 means no modifier */
+ static int surfuseragent    = 1;  /* Append Surf version to default WebKit user agent */
+ static char *fulluseragent  = ""; /* Or override the whole user agent string */
+-static char *scriptfile     = "~/.surf/script.js";
+-static char *styledir       = "~/.surf/styles/";
+-static char *certdir        = "~/.surf/certificates/";
+-static char *cachedir       = "~/.surf/cache/";
+-static char *cookiefile     = "~/.surf/cookies.txt";
++static char *scriptfile     = "~/.config/surf/script.js";
++static char *styledir       = "~/.config/surf/styles/";
++static char *certdir        = "~/.local/share/surf/certificates/";
++static char *cachedir       = "~/.cache/surf/";
++static char *cookiefile     = "~/.local/share/surf/cookies.txt";
+ 
+ /* Webkit default features */
+ /* Highest priority value will be used.
+-- 
+2.38.1
+
